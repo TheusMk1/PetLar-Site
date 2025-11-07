@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adotar um Pet - PetLar</title>
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/adotar.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="/img/logo/Logo_Principalfavicon.png">
+</head>
+<body class="light-theme">
+    
+    <div id="header-placeholder"></div>
+
+    <main>
+
+        <div class="voltar-container">
+            <a href="/index.html" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i> Voltar para Início
+            </a>
+        </div>
+
+        <nav class="breadcrumbs">
+            <a href="/index.html">Home</a>
+            <span>//</span>
+            <span>Araçatuba/SP</span>
+            <span>//</span>
+            <strong>Adoção</strong>
+        </nav>
+
+        <div class="title-bar-adotar">
+            <h2>Cachorros e Gatos para Adoção em Araçatuba/SP</h2>
+            <button class="btn-trocar-cidade">Trocar Cidade</button>
+        </div>
+
+        <section class="filter-bar">
+            <div class="filter-group">
+                <button class="filter-toggle active" data-filter="tipo" data-value="todos"><i class="fas fa-paw"></i> Todos</button>
+                <button class="filter-toggle" data-filter="tipo" data-value="cachorro"><i class="fas fa-dog"></i> Cão</button>
+                <button class="filter-toggle" data-filter="tipo" data-value="gato"><i class="fas fa-cat"></i> Gato</button>
+            </div>
+            <div class="filter-group">
+                <button class="filter-toggle active" data-filter="sexo" data-value="todos">Ambos</button>
+                <button class="filter-toggle" data-filter="sexo" data-value="macho"><i class="fas fa-mars"></i> Macho</button>
+                <button class="filter-toggle" data-filter="sexo" data-value="femea"><i class="fas fa-venus"></i> Fêmea</button>
+            </div>
+            
+            <select id="filter-porte" class="filter-select" data-filter="porte">
+                <option value="todos">Porte</option>
+                <option value="pequeno">Pequeno</option>
+                <option value="medio">Médio</option>
+                <option value="grande">Grande</option>
+            </select>
+            
+            <select id="filter-idade" class="filter-select" data-filter="idade">
+                <option value="todos">Idade</option>
+                <option value="filhote">Filhote (até 1 ano)</option>
+                <option value="adulto">Adulto (1-7 anos)</option>
+                <option value="idoso">Idoso (8+ anos)</option>
+            </select>
+            
+            <button id="btn-filtrar" class="btn-filtrar"><i class="fas fa-filter"></i> Filtrar</button>
+        </section>
+
+        <section class="animals-for-adoption">
+            <div class="animal-grid" id="adoption-grid">
+                </div>
+        </section>
+
+        <nav class="pagination">
+            <button id="btn-prev" disabled>Anterior</button>
+            <span id="page-info">Página 1 de 1</span>
+            <button id="btn-next">Próximo</button>
+        </nav>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <div id="adoption-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" aria-label="Fechar modal">&times;</button>
+            
+            <div id="modal-form-content">
+                <h2 id="modal-title">Quero Adotar!</h2>
+                <p>Preencha seus dados para que o doador possa entrar em contato.</p>
+                <form id="adoption-form">
+                    <input type="hidden" id="pet-id-input">
+                    <p class="pet-name-label">Animal: <strong id="pet-name-modal"></strong></p>
+                    
+                    <div class="form-group">
+                        <label for="nome">Seu nome completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                        <span class="error-message" aria-live="polite"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsapp">Telefone (WhatsApp):</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(xx) xxxxx-xxxx" required>
+                        <span class="error-message" aria-live="polite"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Seu E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" aria-live="polite"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit-form">Enviar Interesse</button>
+                </form>
+            </div>
+            
+            <div id="modal-success-content" class="modal-success-message" aria-hidden="true">
+                <i class="fas fa-check-circle"></i>
+                <h3>Resposta Enviada!</h3>
+                <p>O doador do animal receberá seus dados e entrará em contato em breve. Obrigado!</p> 
+                <button class="modal-close">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/database.js"></script> <script src="/js/script.js"></script>     <script src="/js/adotar.js"></script> <script src="/js/acessibilidade.js"></script>    
+</body>
+</html>

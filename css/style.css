@@ -1,0 +1,1052 @@
+/* Variáveis de Cores para o Tema Claro */
+:root {
+    --primary-color: #FF69B4; /* Rosa */
+    --secondary-color: #9370DB; /* Roxo */
+    --background-color: #f0f2f5;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --heading-color: #1a1a1a;
+    --border-color: #e0e0e0;
+    --hero-bg-start: #9370DB;
+    --hero-bg-end: #FF69B4;
+}
+
+/* Variáveis de Cores para o Tema Escuro */
+body.dark-theme {
+    --background-color: #1a1a1a;
+    --card-background: #2c2c2c;
+    --text-color: #e0e0e0;
+    --heading-color: #f0f0f0;
+    --border-color: #444444;
+    --hero-bg-start: #2c2c2c;
+    --hero-bg-end: #444444;
+}
+
+body.daltonic-mode {
+    /* Muda apenas as cores de destaque */
+    --primary-color: #55a8f2;   /* Azul */
+    --secondary-color: #f2e355; /* Amarelo */
+    --hero-bg-start: #f2e355;
+    --hero-bg-end: #55a8f2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-background);
+    padding: 10px 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left .logo img {
+    height:70px;
+    margin-right: 20px;
+    border-radius: 8px; /* Adiciona um pouco de estilo ao logo */
+    transform: translateY(7px);
+
+}
+
+.navbar-left ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-left ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar-left ul li a:hover {
+    color: var(--primary-color);
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.navbar-right span {
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, var(--hero-bg-start), var(--hero-bg-end));
+    color: white;
+    padding: 25px 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 0 0 15px 15px; /* Bordas arredondadas na parte inferior */
+}
+
+.hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Para responsividade */
+}
+
+.hero-content p {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.hero-content .city {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.btn-change-city, .btn-location {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-change-city:hover, .btn-location:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Quick Links */
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.link-item {
+    background-color: var(--card-background);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border-color);
+}
+
+.link-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.link-item i {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.link-item span {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+/* Animals for Adoption Section */
+.animals-for-adoption {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.animals-for-adoption h2 {
+    font-size: 1.8em;
+    color: var(--heading-color);
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.animal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.animal-card {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.animal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.animal-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que o card-info cresça para ocupar espaço */
+}
+
+.card-info h3 {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    font-size: 0.95em;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.card-info .description {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Permite que a descrição ocupe o espaço restante */
+}
+
+.btn-adopt {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: auto; /* Alinha o botão na parte inferior do card-info */
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Garante que o botão não estique */
+}
+
+.btn-adopt:hover {
+    background-color: #e04a99;
+}
+
+.view-all {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.view-all a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: text-decoration 0.3s ease;
+}
+
+.view-all a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    /* ADICIONE ISTO DENTRO DO @media (max-width: 900px) */
+    .navbar-left {
+         /* Garante que a logo e o letreiro fiquem lado a lado */
+         flex: 1; /* Ocupa o espaço */
+         min-width: 0; /* Impede que estoure a tela */
+         align-items: center;
+         display: flex;
+    }
+
+    .navbar-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-section {
+        padding: 20px;
+    }
+
+    .quick-links {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        padding: 0 15px;
+    }
+
+    .animal-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar-left ul {
+        gap: 10px;
+    }
+
+    .quick-links {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
+/* --- Estilos do Letreiro (Ticker) --- */
+
+.ticker-wrap {
+    /* O 'flex: 1' faz o letreiro ocupar o espaço disponível entre a logo e os botões */
+    flex: 1; 
+    /* 'overflow: hidden' é crucial para esconder o texto que está fora da tela */
+    overflow: hidden;
+    /* Damos um pouco de espaço para não colar na logo */
+    margin-left: 25px; 
+    /* E um pouco de espaço para não colar nos botões da direita */
+    margin-right: 25px;
+    min-width: 100px; /* Garante que ele não desapareça em telas pequenas */
+}
+
+.ticker-text {
+    /* Impede que o texto quebre a linha */
+    white-space: nowrap; 
+    /* Inicia a animação */
+    animation: scroll-right 15s linear infinite;                                                                                                                                                                                                                                                                                                                                                                                                                                  
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+.ticker-text span {
+    /* Garante que os spans fiquem lado a lado */
+    display: inline-block;
+}
+
+/* Animação que move para a DIREITA */
+@keyframes scroll-right {
+    0% {
+        /* Começa com a segunda cópia do texto no início */
+        transform: translateX(-50%);
+    }
+    100% {
+        /* Termina com a primeira cópia do texto no início, criando um loop perfeito */
+        transform: translateX(0);
+    }
+}
+
+/* Pausa a animação ao passar o mouse (bom para acessibilidade) */
+.ticker-wrap:hover .ticker-text {
+    animation-play-state: paused;
+}
+
+/* --- Estilos do Novo Menu de Acessibilidade --- */
+
+/* 1. Torna o container .navbar-right o 'pai' do menu flutuante */
+.navbar-right {
+    position: relative;
+}
+
+/* 2. O botão principal "Acessibilidade" */
+.btn-acessibilidade {
+    background-color: var(--secondary-color); /* Roxo/cor de destaque */
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-acessibilidade:hover {
+    transform: scale(1.05); /* Efeito de 'zoom' leve */
+    background-color: #7b59c7; /* Um pouco mais escuro no hover */
+}
+
+/* 3. O menu flutuante (dropdown) */
+.dropdown-menu {
+    /* Começa escondido */
+    display: none; 
+
+    position: absolute;
+    top: 110%; /* Fica logo abaixo do botão 'pai' */
+    right: 0; /* Alinhado à direita */
+    min-width: 250px; /* Largura mínima do menu */
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    z-index: 1000; /* Fica na frente de tudo */
+    padding: 10px;
+}
+
+/* 4. Classe que o JS vai adicionar para MOSTRAR o menu */
+.dropdown-menu.show {
+    display: block;
+}
+
+/* 5. Cada item (linha) dentro do menu */
+.menu-item {
+    display: flex;
+    justify-content: space-between; /* Texto de um lado, toggle do outro */
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.menu-item:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+.menu-item span {
+    font-size: 0.95em;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Placeholder para o modo Alto Contraste */
+body.contraste-mode {
+    --background-color: #000000;
+    --card-background: #000000;
+    --text-color: #FFFFFF;
+    --heading-color: #FFFFFF;
+    --primary-color: #FFFF00; /* Amarelo vivo */
+    --secondary-color: #00FFFF; /* Ciano vivo */
+    --border-color: #FFFFFF;
+}
+
+/* --- Estilos do Footer (Rodapé) --- */
+/* ======== FOOTER ======== */
+.site-footer {
+  background-color: #f7f3f3;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  padding: 20px;
+}
+
+/* Top bar preta */
+.footer-top {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 15px 10px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-top-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-top-item i {
+  font-size: 1.1rem;
+}
+
+/* Parte principal */
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 10%;
+  border-top: 1px solid #ddd;
+}
+
+.footer-logo {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-logo img {
+  width: 140px;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.footer-social a {
+  color: #333;
+  font-size: 1rem;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #0077b5;
+}
+
+/* Colunas */
+.footer-columns {
+  display: flex;
+  flex: 2;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-column h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #000;
+}
+
+/* Base inferior */
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+
+/* --- Estilos do Modal de Adoção --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    background: var(--card-background);
+    color: var(--text-color);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay[aria-hidden="false"] .modal-container {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: #aaa;
+    cursor: pointer;
+}
+
+#modal-form-content h2, #modal-title {
+    color: var(--heading-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#modal-form-content p {
+    margin-bottom: 20px;
+}
+
+.pet-name-label {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.pet-name-label strong {
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.form-group .error-message {
+    color: #e74c3c;
+    font-size: 0.85em;
+    display: none; /* JS vai mostrar */
+    margin-top: 5px;
+}
+
+.form-group input:invalid.touched {
+    border-color: #e74c3c;
+}
+
+.btn-submit-form {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit-form:hover {
+    opacity: 0.85;
+}
+
+/* --- Mensagem de Sucesso do Modal --- */
+.modal-success-message {
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.modal-success-message i {
+    font-size: 4em;
+    color: #2ecc71;
+    margin-bottom: 20px;
+}
+
+.modal-success-message h3 {
+    color: var(--heading-color);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+/* Remove o sublinhado dos links que criamos 
+  para os cards e para os links rápidos.
+*/
+.link-item-link,
+.animal-card-link {
+    /* Esta é a linha que remove o traçado */
+    text-decoration: none;
+    
+    /* Esta linha faz o texto ter a cor normal (preto/branco)
+       ao invés da cor de link padrão (azul) */
+    color: inherit;
+    
+    display: block; 
+}
+
+/* ===========================
+   Modal Doação - PetLar (ajustado)
+   =========================== */
+
+/* overlay / container (mesma base que já usa) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.56);
+  backdrop-filter: blur(6px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .22s ease;
+}
+.modal-overlay[aria-hidden="false"]{ opacity:1; pointer-events:all; }
+
+.modal-container {
+  width: 95%;
+  max-width: 430px;
+  background: var(--surface, #fff);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  display:flex;
+  flex-direction:column;
+  color: var(--text, #1b1f23);
+}
+
+/* header colorido (tom do site) */
+.modal-header{
+  background: var(--accent, #2e8b57);
+  color: #fff;
+  padding: 20px;
+  text-align: left;
+}
+.modal-header h2{ margin:0; font-size:1.05rem; font-weight:700; }
+.modal-header p{ margin:6px 0 0; opacity:0.95; font-size:0.95rem; }
+
+/* body do modal */
+.modal-body{
+  padding: 18px 18px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* segmented control (PetLar / ONGs) */
+.segmented {
+  display:flex;
+  gap:8px;
+  background: transparent;
+}
+.segmented button {
+  flex:1;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.06);
+  background: #fff;
+  font-weight:700;
+  cursor:pointer;
+  transition: background .15s ease, border-color .15s ease, transform .06s ease;
+  color: var(--text, #1b1f23);
+}
+.segmented button:hover{ transform: translateY(-1px); }
+.segmented button.active {
+  background: linear-gradient(180deg,var(--accent, #2e8b57), var(--accent-strong,#256b45));
+  color: #fff;
+  border-color: rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(46,139,87,0.18);
+}
+
+/* label para a seção */
+.form-label { font-weight:600; font-size:0.95rem; color:var(--text); }
+
+/* ONG options estilo: labels grandes e fáceis de clicar */
+/* Garantir que o label de título dentro de #ong-options-container NÃO receba o estilo de .ong-option */
+#ong-options-container > label {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  cursor: default;
+  color: var(--text, #1b1f23);
+  display: block;
+}
+
+/* O estilo das opções reais (labels que têm input) permanece */
+.ong-option {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #e6e7e9;
+  cursor:pointer;
+  background: var(--surface, #fff);
+}
+.ong-option:hover { border-color: var(--accent, #2e8b57); background: rgba(46,139,87,0.03); }
+
+.ong-option input[type="radio"]{ width:18px; height:18px; accent-color: var(--accent,#2e8b57); }
+
+/* Grid de valores (2 colunas em desktop, 1 em mobile) */
+.donate-options-grid {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+}
+.donate-amount-btn {
+  padding:12px 6px;
+  border-radius:10px;
+  border:2px solid #d5d7da;
+  background:#fafafa;
+  font-weight:700;
+  cursor:pointer;
+  min-height:44px;
+  transition: all .12s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text);
+}
+.donate-amount-btn:hover{ border-color:var(--accent,#2e8b57); transform: translateY(-2px); }
+.donate-amount-btn.active {
+  background: var(--accent, #2e8b57);
+  color:#fff;
+  border-color: var(--accent, #2e8b57);
+  box-shadow: 0 8px 18px rgba(46,139,87,0.18);
+}
+
+/* input valor custom */
+#custom-amount {
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #d5d7da;
+  background:#fff;
+  font-size:0.96rem;
+}
+
+/* resumo do valor selecionado (badge) */
+.selected-badge{
+  display:none;
+  margin-top:6px;
+  font-weight:700;
+  padding:8px 10px;
+  border-radius:999px;
+  background: rgba(46,139,87,0.12);
+  color: var(--accent, #2e8b57);
+  align-self:flex-start;
+}
+.selected-badge.show{ display:inline-flex; }
+
+/* rodapé com botão */
+.modal-footer {
+  padding: 14px;
+  border-top: 1px solid #f0f0f0;
+  background: var(--surface, #fff);
+}
+.btn-submit-form {
+  width:100%;
+  padding:12px 14px;
+  background: var(--accent, #2e8b57);
+  color:#fff;
+  border-radius:10px;
+  border:none;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* erros */
+.error-message { color: var(--danger, #d9534f); font-size:0.88rem; display:none; margin-top:6px; }
+
+/* mobile adjustments */
+@media (max-width:480px){
+  .donate-options-grid { grid-template-columns: 1fr; }
+  .modal-body{ padding:14px; }
+  .segmentend { gap:6px; }
+}
+
+.acess-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+.acess-btn:hover {
+  background-color: #444;
+}
+
+
+/* 1) Remover sublinhado de TODOS os links dentro dos cards (força máxima) */
+.animal-card,
+.animal-card a,
+.animal-card a:link,
+.animal-card a:visited,
+.animal-card a:hover,
+.animal-card a:active,
+.animal-card a:focus {
+  text-decoration: none !important;
+  color: inherit !important;       /* mantém cor do texto do card por padrão */
+  outline: none !important;        /* evita traço de foco visual indesejado (se quiser manter, remova esta linha) */
+}
+
+/* 2) Se você quiser títulos (h3) em rosa, sem sublinhado mas com cor específica */
+.card-info h3 a,
+.card-info h3 a:link,
+.card-info h3 a:visited {
+  color: #ff4fa1 !important;
+  text-decoration: none !important;
+}
+
+/* 3) Botão de adoção — garantir cor e sem sublinhado */
+.btn-adopt,
+.btn-adopt:link,
+.btn-adopt:visited {
+  text-decoration: none !important;
+  color: #fff !important;
+}
+
+/* 4) Em alguns navegadores, links que são blocos podem mostrar decoração por herança.
+   Caso ainda apareça sublinhado, remova a decoração do elemento pai também: */
+.animal-card * {
+  text-decoration: none !important;
+}
+
+

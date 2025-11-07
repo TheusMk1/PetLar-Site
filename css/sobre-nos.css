@@ -1,0 +1,492 @@
+/* =================================
+   RESET E FONTES
+   ================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* =================================
+   VARIÁVEIS DE DESIGN (TEMA)
+   ================================= */
+:root {
+    --primary: #b968f9;
+    --secondary: #f56fb3;
+    --gradient: linear-gradient(90deg, var(--primary), var(--secondary));
+    --bg-light: #f8f9fa; /* Fundo mais suave */
+    --bg-white: #ffffff;
+    --text-dark: #333;
+    --text-light: #555;
+    --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    --border-radius: 12px;
+}
+
+/* =================================
+   MODO ESCURO (Variáveis)
+   ================================= */
+body.dark-theme {
+    --bg-light: #1e1e1e;
+    --bg-white: #2c2c2c;
+    --text-dark: #e5e5e5;
+    --text-light: #b0b0b0;
+    --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* =================================
+   ESTILOS GERAIS (BODY)
+   ================================= */
+body {
+    /* ========== CORREÇÃO ADICIONADA AQUI ========== */
+    background-color: var(--bg-light); 
+    /* ============================================ */
+    color: var(--text-dark);
+    line-height: 1.7;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* =================================
+   HEADER E FOOTER (Seu código, com variáveis)
+   ================================= */
+.top-bar {
+    width: 100%;
+    background: var(--gradient);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-voltar {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+    background-color: #22c55e;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.btn-voltar:hover { background-color: #16a34a; }
+
+.rodape {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background: var(--gradient);
+    color: #fff;
+    margin-top: 40px;
+}
+
+/* =================================
+   MENU ACESSIBILIDADE (Seu código)
+   ================================= */
+.acessibilidade {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* SELETOR ATUALIZADO AQUI */
+#acessibilidade button, #acessibilidade-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+/* E AQUI */
+#acessibilidade-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+/* LÓGICA DE EXIBIÇÃO ATUALIZADA */
+.menu-acessibilidade {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: var(--bg-white);
+    color: var(--text-dark);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding: 15px;
+    width: 220px;
+    text-align: left;
+    z-index: 100;
+
+    /* Transição suave */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+/* O JS vai adicionar a classe 'show' */
+.menu-acessibilidade.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+/* O restante do menu (opcao, hr, switch...) fica igual */
+.menu-acessibilidade .opcao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+.menu-acessibilidade hr {
+    border: none;
+    height: 1px;
+    background: #e5e5e5;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: #ccc;
+    border-radius: 22px;
+    transition: 0.3s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+input:checked + .slider { background-color: var(--primary); }
+input:checked + .slider:before { transform: translateX(18px); }
+
+/* =================================
+   NOVO CONTEÚDO PRINCIPAL
+   ================================= */
+.page-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espaço entre as seções */
+
+    /* ----- MUDANÇAS PARA O BOTÃO FLUTUANTE ----- */
+    position: relative; /* Cria um contexto de empilhamento */
+    z-index: 10; /* Fica acima do botão flutuante */
+    
+    /* A cor de fundo aqui é para o "preenchimento" dentro do contêiner.
+       No modo claro, será #f8f9fa (igual ao body).
+       No modo escuro, será #1e1e1e (igual ao body).
+       Isso está correto.
+    */
+    background-color: var(--bg-light); 
+    /* ------------------------------------------- */
+}
+
+/* Estilo base para todas as seções */
+.content-section {
+    width: 100%;
+}
+
+/* Títulos H2 com gradiente */
+.content-section h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    /* Efeito de texto em gradiente */
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.content-section p {
+    font-size: 1.05em;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+/* =================================
+   LAYOUT DIVIDIDO (Split Section)
+   ================================= */
+.split-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: var(--bg-white); /* Usa --bg-white (branco / #2c2c2c) */
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden; /* Para o efeito de hover na imagem */
+}
+.split-section .text-content {
+    flex: 1;
+}
+.split-section .image-content {
+    flex: 1;
+}
+.split-section .image-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+    border-radius: var(--border-radius);
+    transition: transform 0.4s ease-out; /* Efeito Hover */
+}
+.split-section .image-content:hover img {
+    transform: scale(1.05); /* Efeito Hover */
+}
+
+/* Modificador para inverter o layout */
+.split-section.reverse {
+    flex-direction: row-reverse;
+}
+
+/* =================================
+   GRID DE VALORES
+   ================================= */
+#valores {
+    text-align: center;
+}
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+.value-card {
+    background: var(--bg-white); /* Usa --bg-white (branco / #2c2c2c) */
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+.value-card .icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+.value-card h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+.value-card p {
+    font-size: 0.95em;
+    color: var(--text-light);
+}
+
+
+/* =================================
+   CARD FUNDADOR (Seu código, melhorado)
+   ================================= */
+#fundador {
+    text-align: center;
+}
+.card-colaborador {
+    display: inline-block;
+    background: #fdf1ff; 
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 15px;
+    transition: 0.3s;
+    box-shadow: var(--card-shadow);
+}
+/* Efeito hover mais pronunciado */
+.card-colaborador:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(185, 104, 249, 0.2);
+}
+body.dark-theme .card-colaborador {
+    background-color: #3a3042; /* Cor para modo escuro */
+}
+.card-colaborador img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 4px solid var(--bg-white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.card-colaborador h3 {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+.card-colaborador p {
+    font-size: 1em;
+    color: var(--text-light);
+}
+
+/* =================================
+   ANIMAÇÃO DE ENTRADA
+   ================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplica a animação com delay */
+.animate-on-load {
+    opacity: 0; /* Começa invisível */
+    animation: fadeIn 0.7s ease-out forwards;
+}
+
+/* Efeito "Stagger" (carregamento em cascata) */
+#sobre { animation-delay: 0.2s; }
+#missao { animation-delay: 0.4s; }
+#valores { animation-delay: 0.6s; }
+#fundador { animation-delay: 0.8s; }
+
+/* =================================
+   BOTÃO LEITOR DE TELA FLUTUANTE (NOVO)
+   ================================= */
+.leitor-flutuante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 5; /* <- IMPORTANTE: Mais baixo que o .page-container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leitor-flutuante:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip para o botão */
+.leitor-flutuante .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%; /* Posição acima do botão */
+    left: 50%;
+    margin-left: -60px; /* Metade da largura */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    pointer-events: none; /* Para não atrapalhar o clique */
+}
+
+.leitor-flutuante:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* =================================
+   RESPONSIVIDADE
+   ================================= */
+@media (max-width: 768px) {
+    .btn-voltar {
+        position: static;
+        transform: none;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    .acessibilidade {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+    }
+    .top-bar {
+        padding: 15px;
+    }
+    
+    /* Inverte o layout dividido para mobile */
+    .split-section, .split-section.reverse {
+        flex-direction: column-reverse; /* Imagem sempre no topo */
+        padding: 25px;
+    }
+    .content-section h2 {
+        font-size: 1.8em;
+    }
+
+    /* Ajusta botão flutuante em telas menores */
+    .leitor-flutuante {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* =================================
+   MODOS DE ACESSIBILIDADE (Seu código)
+   ================================= */
+
+body.daltonic-mode {
+    filter: grayscale(80%);
+}
+
+/* SELETOR ATUALIZADO */
+body.contraste-mode {
+    background-color: black !important;
+    color: yellow !important;
+}
+/* E AQUI */
+body.contraste-mode section, 
+body.contraste-mode .page-container, /* Adicionado */
+body.contraste-mode .content-section,
+body.contraste-mode .split-section,
+body.contraste-mode .value-card,
+body.contraste-mode .card-colaborador,
+body.contraste-mode .menu-acessibilidade {
+    background: black !important;
+    color: yellow !important;
+    border: 1px solid yellow;
+}
+/* E AQUI */
+body.contraste-mode h2,
+body.contraste-mode h3 {
+    color: yellow !important;
+    background: none !important;
+    -webkit-text-fill-color: yellow !important;
+}

@@ -1,0 +1,170 @@
+/* /css/pet-detalhe-encontrado.css */
+
+/* === Layout base === */
+:root{
+  --primary-color: #8e3b80; /* roxo principal */
+  --secondary-color: #cf55d3;
+  --card-background: #ffffff;
+  --background-color: #f4f6f8;
+  --text-color: #333;
+  --border-color: #e6e6e6;
+  --heading-color: #222;
+}
+
+body.light-theme {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.main-detalhe {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* breadcrumbs */
+.breadcrumbs-pet {
+  margin-bottom: 20px;
+  font-size: 0.95em;
+}
+.breadcrumbs-pet a { color: var(--primary-color); text-decoration: none; }
+.breadcrumbs-pet a:hover { text-decoration: underline; }
+
+/* two columns */
+.pet-details-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+
+/* gallery left */
+.pet-gallery-column { flex: 1.5; min-width: 300px; }
+.main-image-container{
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+.main-image-container img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+}
+.gallery-nav{ position:absolute; top:50%; transform:translateY(-50%); background: rgba(0,0,0,0.35); color:#fff; border:none; padding:10px; cursor:pointer; z-index:10; border-radius:6px; }
+.gallery-nav.prev { left:10px; }
+.gallery-nav.next { right:10px; }
+.gallery-counter { position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.6); color:#fff; padding:6px 10px; border-radius:20px; font-size:0.9em; }
+
+/* thumbnails */
+.gallery-thumbnails{ display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
+.thumbnail-img{ width:80px; height:60px; object-fit:cover; border-radius:8px; cursor:pointer; border:3px solid transparent; }
+.thumbnail-img.active{ border-color: var(--primary-color); }
+
+/* info column */
+.pet-info-column{ flex: 1; min-width: 300px; }
+.info-box{ background: var(--card-background); border:1px solid var(--border-color); border-radius:12px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+.info-box-header{ padding-bottom:12px; margin-bottom:12px; border-bottom:none; }
+.info-box-header h1{ font-size:1.6em; margin:0; color:var(--heading-color); line-height:1.2; }
+.header-tags{ display:flex; gap:10px; margin-top:8px; background: #f2f3f6; padding:8px 12px; border-radius:8px; }
+.header-tags span{ font-weight:600; color:#555; }
+
+/* info items stacked */
+.info-box-body{ padding-bottom:6px; }
+.info-item{ display:block; padding:12px 0; border-bottom:1px solid var(--border-color); }
+.info-item span{ display:block; color:#777; margin-bottom:4px; font-weight:600; }
+.info-item strong{ color:var(--heading-color); font-size:1.05em; }
+
+/* botões principais */
+.btn-quero-adotar-pet { display:none; } /* não usamos esse aqui (mantemos botão doador) */
+.btn-contatar-quem-encontrou {
+  background: var(--secondary-color);
+  color:#fff;
+  border:none;
+  padding:14px;
+  width:100%;
+  border-radius:10px;
+  font-weight:700;
+  font-size:1rem;
+  cursor:pointer;
+  margin-top:10px;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  box-shadow: 0 8px 20px rgba(108,99,255,0.15);
+}
+.btn-contatar-quem-encontrou:hover{ transform: translateY(-2px); }
+
+/* share group */
+.share-group { text-align:left; margin-top:18px; border-top:1px solid var(--border-color); padding-top:12px; }
+.share-group span { font-weight:600; margin-right:12px; }
+.share-btn { width:40px; height:40px; border-radius:50%; border:1px solid var(--border-color); background:transparent; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+
+/* info-card sections */
+.info-card { background: var(--card-background); border:1px solid var(--border-color); border-radius:12px; padding:25px; margin-bottom:20px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+.info-card h2 { font-size:1.3em; margin-top:0; margin-bottom:14px; color:var(--heading-color); }
+.char-tag-list { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+.char-tag { background:#3498db; color:#fff; padding:6px 12px; border-radius:20px; font-weight:600; }
+
+/* contato doador */
+.doador-info strong{ display:block; font-size:1.1em; margin-bottom:8px; color:var(--heading-color); }
+.doador-descricao{ margin-top:12px; font-size:0.98em; color:#555; }
+
+/* contact buttons */
+.contact-buttons { display:flex; gap:12px; margin-top:16px; flex-wrap:wrap; }
+.btn-contact-yellow{ background:#f1c40f; padding:10px 16px; border-radius:8px; color:#333; text-decoration:none; font-weight:600; }
+.btn-contact-purple{ background:var(--primary-color); color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; }
+
+/* denunciar */
+.btn-denunciar{ background:#e74c3c; color:#fff; border:none; padding:12px; width:100%; border-radius:8px; margin-top:14px; font-weight:700; }
+
+/* responsive */
+@media (max-width: 900px){
+  .pet-details-container{ flex-direction:column; }
+  .pet-gallery-column, .pet-info-column{ width:100%; }
+}
+
+/* ========== Modal Contatar quem encontrou ========== */
+.modal-contato {
+  display: none;
+  position: fixed;
+  z-index: 1500;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content-contato {
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px;
+  width: 92%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  position: relative;
+}
+.close-contato {
+  position:absolute;
+  top:10px;
+  right:12px;
+  font-size:22px;
+  background:transparent;
+  border:none;
+  color:#666;
+  cursor:pointer;
+}
+.modal-content-contato h2{ text-align:center; margin-top:4px; margin-bottom:14px; color:var(--heading-color); }
+.modal-content-contato label{ display:block; font-weight:600; margin-bottom:6px; color:#444; }
+.modal-content-contato input{ width:100%; padding:10px 12px; border-radius:10px; border:1px solid #ddd; margin-bottom:12px; font-size:0.95rem; }
+.modal-buttons { display:flex; justify-content:space-between; gap:12px; margin-top:6px; }
+.btn-fechar{ background:#ddd; color:#333; padding:10px 16px; border-radius:10px; border:none; cursor:pointer; font-weight:700; }
+.btn-enviar{ background:var(--secondary-color); color:#fff; padding:10px 16px; border-radius:10px; border:none; cursor:pointer; font-weight:700; }
+.modal-content-contato input:focus{ outline:none; border-color:var(--secondary-color); box-shadow:0 0 0 3px rgba(108,99,255,0.08); }
+
+/* small screens adjustments */
+@media(max-width:420px){
+  .modal-content-contato{ padding:16px; }
+  .modal-buttons{ flex-direction:column-reverse; }
+  .modal-buttons button{ width:100%; }
+}

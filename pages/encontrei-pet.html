@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrei um Pet - PetLar</title>
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/encontrei-pet.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="/img/logo/Logo_Principalfavicon.png">
+</head>
+<body class="light-theme">
+    
+    <div id="header-placeholder"></div>
+
+    <div class="voltar-container">
+            <a href="/index.html" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i> Voltar para Início
+            </a>
+        </div>
+
+    <main class="main-form-page"> <div class="form-container">
+        
+            <h1>Encontrei um Pet</h1>
+            <p>Preencha os dados do animal que você encontrou para publicá-lo.</p>
+
+            <div class="progress-bar">
+                <div class="progress-step active" data-title="Básico">1</div>
+                <div class="progress-step" data-title="Fotos">2</div>
+                <div class="progress-step" data-title="Detalhes">3</div>
+                <div class="progress-step" data-title="Descrição">4</div>
+                <div class="progress-step" data-title="Contato">5</div>
+            </div>
+
+            <form id="encontrei-pet-form">
+                
+                <div class="form-step active" data-step="1">
+                    <h2 class="step-title">Informações Básicas</h2>
+                    
+                    <div class="form-group">
+                        <label for="pet-situacao">Situação <span class="asterisk">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="pet-situacao" name="pet-situacao" required>
+                                <option value="">-- Selecione a situação --</option>
+                                <option value="perdido">Perdido (Procurando o dono)</option>
+                                <option value="adocao">Para Adoção (Procurando um novo tutor)</option>
+                            </select>
+                        </div>
+                        <span class="error-message" data-field="pet-situacao"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pet-especie">Espécie <span class="asterisk">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="pet-especie" name="pet-especie" required>
+                                <option value="">-- Selecione a espécie --</option>
+                                <option value="cachorro">Cachorro</option>
+                                <option value="gato">Gato</option>
+                            </select>
+                        </div>
+                        <span class="error-message" data-field="pet-especie"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pet-genero">Gênero <span class="asterisk">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="pet-genero" name="pet-genero" required>
+                                <option value="">-- Selecione o gênero --</option>
+                                <option value="macho">Macho</option>
+                                <option value="femea">Fêmea</option>
+                            </select>
+                        </div>
+                        <span class="error-message" data-field="pet-genero"></span>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="btn-prev" disabled><i class="fas fa-arrow-left"></i> Voltar</button>
+                        <button type="button" class="btn-next">Próximo <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <h2 class="step-title">Foto do Animal</h2>
+                    <div class="form-group">
+                        <label for="pet-foto">Foto Principal <span class="asterisk">*</span></label>
+                        <p class="subtitle">Uma foto clara é essencial para o reconhecimento.</p>
+                        <input type="file" id="pet-foto" name="pet-foto" class="input-file" accept="image/*" required>
+                        <label for="pet-foto" class="btn-upload-file">
+                            <i class="fas fa-upload"></i> Escolher Imagem
+                        </label>
+                        <div class="image-preview" id="image-preview-container">
+                            <img src="" alt="Pré-visualização da imagem" class="image-preview-img">
+                            <span class="image-preview-text">Nenhuma imagem selecionada</span>
+                        </div>
+                        <span class="error-message" data-field="pet-foto"></span>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Anterior</button>
+                        <button type="button" class="btn-next">Próximo <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <h2 class="step-title">Detalhes (Opcional)</h2>
+                    <div class="form-group">
+                        <label for="pet-raca">Raça</label>
+                        <input type="text" id="pet-raca" name="pet-raca" placeholder="(Opcional) Ex: SRD (Vira-lata), Siamês...">
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-porte">Porte</label>
+                        <input type="text" id="pet-porte" name="pet-porte" placeholder="(Opcional) Ex: Pequeno, Médio, Grande...">
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-cor">Cor</label>
+                        <input type="text" id="pet-cor" name="pet-cor" placeholder="(Opcional) Ex: Caramelo, Preto, Branco...">
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-idade">Idade (Aproximada)</label>
+                        <input type="text" id="pet-idade" name="pet-idade" placeholder="(Opcional) Ex: 2 anos, 5 meses...">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Anterior</button>
+                        <button type="button" class="btn-next">Próximo <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="4">
+                    <h2 class="step-title">Descrição (Opcional)</h2>
+                    <div class="form-group">
+                        <label for="pet-nome">Nome do Pet</label>
+                        <input type="text" id="pet-nome" name="pet-nome" placeholder="(Opcional) Ex: Bob, Nina (ou 'Sem Nome')">
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-descricao">Descrição/História</label>
+                        <textarea id="pet-descricao" name="pet-descricao" rows="4" placeholder="(Opcional) Onde foi encontrado, comportamento..."></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Anterior</button>
+                        <button type="button" class="btn-next">Próximo <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="5">
+                    <h2 class="step-title">Seus Dados de Contato</h2>
+                    <div class="form-group">
+                        <label for="doador-nome">Seu Nome <span class="asterisk">*</span></label>
+                        <input type="text" id="doador-nome" name="doador-nome" required>
+                        <span class="error-message" data-field="doador-nome"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="doador-email">Seu E-mail <span class="asterisk">*</span></label>
+                        <input type="email" id="doador-email" name="doador-email" required>
+                        <span class="error-message" data-field="doador-email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="doador-telefone">Seu Telefone/WhatsApp <span class="asterisk">*</span></label>
+                        <input type="tel" id="doador-telefone" name="doador-telefone" placeholder="(xx) xxxxx-xxxx" required>
+                        <span class="error-message" data-field="doador-telefone"></span>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Anterior</button>
+                        <button type="submit" class="btn-submit-form">Finalizar Cadastro</button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="form-success-message" class="modal-success-message" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <h3>Cadastro Enviado!</h3>
+                <p>Obrigado! O animal que você encontrou será revisado e logo estará visível no site.</p>
+                <a href="/index.html" class="btn-voltar">Voltar para a Home</a>
+            </div>
+        </div>
+    </main>
+    
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/database.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/encontrei-pet.js"></script>
+    <script src="/js/acessibilidade.js"></script>
+     
+</body>
+</html>

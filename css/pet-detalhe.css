@@ -1,0 +1,285 @@
+/* /CSS/pet-detalhe.css */
+
+.main-detalhe {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.breadcrumbs-pet {
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+.breadcrumbs-pet a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.breadcrumbs-pet a:hover { text-decoration: underline; }
+.breadcrumbs-pet span { margin: 0 8px; }
+
+.pet-details-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Coluna da Galeria (Esquerda) */
+.pet-gallery-column {
+    flex: 1.5; /* Mais espaço para as fotos */
+    min-width: 0;
+}
+
+.main-image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* Proporção 4:3 (height = 75% of width) */
+    background-color: var(--background-color);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.main-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    transition: background 0.3s;
+}
+.gallery-nav:hover { background: rgba(0, 0, 0, 0.7); }
+.gallery-nav.prev { left: 0; border-radius: 0 8px 8px 0; }
+.gallery-nav.next { right: 0; border-radius: 8px 0 0 8px; }
+.gallery-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    z-index: 10;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.thumbnail-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: border-color 0.3s, opacity 0.3s;
+}
+.thumbnail-img:hover {
+    opacity: 0.8;
+}
+.thumbnail-img.active {
+    border-color: var(--primary-color);
+}
+
+/* Coluna de Info (Direita) */
+.pet-info-column {
+    flex: 1; /* Menos espaço */
+    min-width: 0;
+}
+.info-box {
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.info-box-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.info-box-header h1 {
+    font-size: 2em;
+    color: var(--heading-color);
+    margin: 0;
+}
+.header-tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.header-tags span {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.info-item:last-child { border-bottom: none; }
+.info-item span { color: var(--text-color); }
+.info-item strong { color: var(--heading-color); }
+
+.btn-quero-adotar-pet {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 18px;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.btn-quero-adotar-pet:hover { opacity: 0.85; }
+
+.share-group {
+    text-align: center;
+    margin-top: 20px;
+}
+.share-group span {
+    font-weight: 600;
+    margin-right: 15px;
+    color: var(--text-color);
+}
+.share-btn {
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background 0.3s, color 0.3s;
+}
+.share-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Seções Extras (História, Contato) */
+.info-card {
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+.info-card h2 {
+    font-size: 1.5em;
+    color: var(--heading-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.info-card p, .doador-info p {
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.char-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.char-tag-list h4 {
+    width: 100%;
+    flex-basis: 100%;
+    font-size: 1.1em;
+    color: var(--heading-color);
+}
+.char-tag {
+    background-color: #3498db; /* Azul */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.doador-info strong {
+    font-size: 1.2em;
+    color: var(--heading-color);
+    display: block;
+    margin-bottom: 10px;
+}
+.doador-descricao {
+    margin-top: 20px;
+    font-style: italic;
+}
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0;
+}
+.btn-contact-yellow, .btn-contact-purple {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+.btn-contact-yellow:hover, .btn-contact-purple:hover { opacity: 0.8; }
+.btn-contact-yellow {
+    background-color: #f1c40f; /* Amarelo */
+    color: #333;
+}
+.btn-contact-purple {
+    background-color: var(--secondary-color); /* Roxo */
+    color: white;
+}
+.btn-denunciar {
+    background-color: #e74c3c; /* Vermelho */
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    gap: 10px;
+}
+.btn-denunciar:hover { background-color: #c0392b; }
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .pet-details-container {
+        flex-direction: column;
+    }
+    .pet-gallery-column, .pet-info-column {
+        flex: 1 1 100%;
+    }
+}

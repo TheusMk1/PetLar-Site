@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carregando...</title>
+
+  <!-- CSS gerais do site -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- CSS específico desta página -->
+  <link rel="stylesheet" href="/css/pet-detalhe-encontrado.css"> 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="icon" type="image/png" href="/img/logo/Logo_Principalfavicon.png">
+</head>
+<body class="light-theme">
+
+  <div id="header-placeholder"></div>
+
+  <main class="main-detalhe">
+    <nav class="breadcrumbs-pet" id="breadcrumbs-container">
+      <a href="/index.html">Home</a>
+      <span>//</span>
+      <a href="/pages/encontrados.html">Pets Perdidos</a>
+      <span>//</span>
+      <span id="breadcrumb-tipo">...</span>
+      <span>//</span>
+      <strong id="breadcrumb-nome">...</strong>
+    </nav>
+
+    <section class="pet-details-container">
+
+      <div class="pet-gallery-column">
+        <div class="main-image-container">
+          <img src="https://via.placeholder.com/600x400/CCCCCC/555555?text=Carregando..." alt="Foto principal do animal" id="main-pet-image">
+          <button class="gallery-nav prev" id="gallery-prev" aria-label="Foto anterior">&#10094;</button>
+          <button class="gallery-nav next" id="gallery-next" aria-label="Próxima foto">&#10095;</button>
+          <span class="gallery-counter" id="gallery-counter">1 / 1</span>
+        </div>
+        <div class="gallery-thumbnails" id="thumbnail-container"></div>
+      </div>
+
+      <div class="pet-info-column">
+        <div class="info-box">
+          <div class="info-box-header">
+            <h1 id="pet-name-title">Carregando...</h1>
+            <div class="header-tags" id="header-tags-container"></div>
+          </div>
+
+          <div class="info-box-body">
+            <div class="info-item">
+              <span>Raça</span>
+              <strong id="pet-raca">...</strong>
+            </div>
+            <div class="info-item">
+              <span>Localização</span>
+              <strong id="pet-localizacao">...</strong>
+            </div>
+            <div class="info-item">
+              <span>Sexo</span>
+              <strong id="pet-sexo">...</strong>
+            </div>
+            <div class="info-item">
+              <span>Código</span>
+              <strong id="pet-codigo">...</strong>
+            </div>
+          </div>
+
+          <!-- BOTÃO que abre o modal CONTATAR -->
+          <button class="btn-contatar-quem-encontrou" id="btn-contatar-quem-encontrou">
+            <i class="fas fa-hand-paper"></i> Contatar quem encontrou
+          </button>
+
+          <div class="share-group">
+            <span>Compartilhar</span>
+            <a href="#" id="share-fb" class="share-btn" aria-label="Compartilhar no Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" id="share-wa" class="share-btn" aria-label="Compartilhar no WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <button id="share-link" class="share-btn" aria-label="Copiar link"><i class="fas fa-link"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="pet-extra-info">
+      <div class="info-card">
+        <h2>História do Animal</h2>
+        <p id="pet-historia">Carregando...</p>
+      </div>
+
+      <div class="info-card">
+        <h2>Características</h2>
+        <h4>Cuidados Veterinários:</h4>
+        <div class="char-tag-list" id="tags-cuidados"></div>
+        <h4>Temperamento:</h4>
+        <div class="char-tag-list" id="tags-temperamento"></div>
+        <h4>Vive bem com:</h4>
+        <div class="char-tag-list" id="tags-viveBemCom"></div>
+        <h4>Sociável com:</h4>
+        <div class="char-tag-list" id="tags-sociavelCom"></div>
+      </div>
+    </section>
+
+    <section class="pet-contact-info">
+      <div class="info-card doador-info">
+        <h2>Contato sobre o animal</h2>
+        <strong id="doador-nome">...</strong>
+        <p>E-mail: <span id="doador-email">...</span></p>
+        <p>Telefone/WhatsApp: <span id="doador-telefone">...</span></p>
+        <p class="doador-descricao" id="pet-descricao-curta">...</p>
+
+        <div class="contact-buttons">
+          <a href="#" class="btn-contact-yellow">Ver mais pets deste doador</a>
+          <a href="/pages/adotar.html" class="btn-contact-purple">Ver todos os Cachorros</a>
+        </div>
+
+        <button class="btn-denunciar">
+          <i class="fas fa-exclamation-triangle"></i> Denunciar
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- Modal "Quero Adotar!" existente (mantido) -->
+  <div id="adoption-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Fechar modal">&times;</button>
+      <div id="modal-form-content">
+        <h2 id="modal-title">Quero Adotar!</h2>
+        <p>Preencha seus dados para que o doador possa entrar em contato.</p>
+        <form id="adoption-form">
+          <input type="hidden" id="pet-id-input">
+          <p class="pet-name-label">Animal: <strong id="pet-name-modal"></strong></p>
+          <div class="form-group">
+            <label for="nome">Seu nome completo:</label>
+            <input type="text" id="nome" name="nome" required>
+            <span class="error-message" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">Telefone (WhatsApp):</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(xx) xxxxx-xxxx" required>
+            <span class="error-message" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Seu E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn-submit-form">Enviar Interesse</button>
+        </form>
+      </div>
+      <div id="modal-success-content" class="modal-success-message" aria-hidden="true">
+        <i class="fas fa-check-circle"></i>
+        <h3>Resposta Enviada!</h3>
+        <p>O doador do animal receberá seus dados e entrará em contato em breve. Obrigado!</p>
+        <button class="modal-close">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+       NOVO MODAL: Contatar quem encontrou (exclusivo)
+       ============================ -->
+  <div id="contatoModal" class="modal-contato" aria-hidden="true">
+    <div class="modal-content-contato" role="dialog" aria-modal="true" aria-labelledby="contato-title">
+      <button class="close-contato" aria-label="Fechar modal">&times;</button>
+      <h2 id="contato-title">Entrar em Contato</h2>
+      <form id="formContato">
+        <label for="contato-nome">Nome *</label>
+        <input type="text" id="contato-nome" name="nome" required />
+
+        <label for="contato-telefone">WhatsApp / Telefone *</label>
+        <input type="text" id="contato-telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" required />
+
+        <label for="contato-email">E-mail *</label>
+        <input type="email" id="contato-email" name="email" required />
+
+        <div class="modal-buttons">
+          <button type="button" id="fecharBtn" class="btn-fechar">Fechar</button>
+          <button type="submit" class="btn-enviar">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPTS: ordem importante -->
+  <script src="/js/database-encontrados.js"></script>
+  <script src="/js/script.js"></script>
+  <script src="/js/pet-detalhe-encontrado.js"></script>
+  <script src="/js/acessibilidade.js"></script>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

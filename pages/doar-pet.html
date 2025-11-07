@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doar um Pet - PetLar</title>
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/doar-pet.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="light-theme">
+    
+    <div id="header-placeholder"></div>
+
+    <main class="main-doar-pet">
+
+        <div class="voltar-container">
+        <a href="/index.html" class="btn-voltar">
+            <i class="fas fa-arrow-left"></i> Voltar para Início
+        </a>
+    </div>
+
+        <div class="form-container">
+            <h1>Cadastre um animal para adoção</h1>
+            <p>Preencha o formulário abaixo com o máximo de detalhes possível.</p>
+
+            <div class="progress-bar">
+                <div class="progress-step active" data-title="Básico">1</div>
+                <div class="progress-step" data-title="Fotos">2</div>
+                <div class="progress-step" data-title="Detalhes">3</div>
+                <div class="progress-step" data-title="Contato">4</div>
+            </div>
+
+            <form id="doar-pet-form">
+                
+                <div class="form-step active" data-step="1">
+                    <h2 class="step-title">Informações Básicas</h2>
+                    <div class="form-group">
+                        <label>Espécie <span class="asterisk">*</span></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="especie" value="cachorro"> <i class="fas fa-dog"></i> Cachorro</label>
+                            <label><input type="radio" name="especie" value="gato"> <i class="fas fa-cat"></i> Gato</label>
+                        </div>
+                        <span class="error-message" data-field="especie"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Sexo <span class="asterisk">*</span></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="sexo" value="macho"> <i class="fas fa-mars"></i> Macho</label>
+                            <label><input type="radio" name="sexo" value="femea"> <i class="fas fa-venus"></i> Fêmea</label>
+                        </div>
+                        <span class="error-message" data-field="sexo"></span>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-next">Próximo <i class="fas fa-arrow-right"></i></button>
+                </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <h2 class="step-title">Fotos do Animal</h2>
+                    <div class="form-group">
+                        <label for="pet-foto">Foto Principal <span class="asterisk">*</span></label>
+                        <p class="subtitle">Uma boa foto aumenta a chance de adoção em 80%!</p>
+                        <input type="file" id="pet-foto" name="pet-foto" accept="image/*" required>
+                        <div class="image-preview" id="image-preview-container">
+                            <img src="" alt="Pré-visualização da imagem" class="image-preview-img">
+                            <span class="image-preview-text">Pré-visualização</span>
+                        </div>
+                        <span class="error-message" data-field="pet-foto"></span>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Anterior</button>
+                        <button type="button" class="btn-next">Próximo <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <h2 class="step-title">Detalhes (Opcional)</h2>
+                    <div class="form-group">
+                        <label for="pet-raca">Raça</label>
+                        <input type="text" id="pet-raca" name="pet-raca" placeholder="(Opcional) Ex: SRD (Vira-lata), Poodle...">
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-porte">Porte</label>
+                        <input type="text" id="pet-porte" name="pet-porte" placeholder="(Opcional) Ex: Pequeno, Médio, Grande...">
+                </div>
+                    <div class="form-group">
+                        <label for="pet-cor">Cor</label>
+                        <input type="text" id="pet-cor" name="pet-cor" placeholder="(Opcional) Ex: Caramelo, Preto, Branco...">
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-idade">Idade</label>
+                        <input type="text" id="pet-idade" name="pet-idade" placeholder="(Opcional) Ex: 2 anos, 5 meses...">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Anterior</button>
+                        <button type="button" class="btn-next">Próximo <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="4">
+                    <h2 class="step-title">Finalizando...</h2>
+                    <div class="form-group">
+                        <label for="pet-nome">Nome do Pet</label>
+                        <input type="text" id="pet-nome" name="pet-nome" placeholder="(Opcional) Ex: Bob, Nina...">
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-descricao">Descrição/História</label>
+                        <textarea id="pet-descricao" name="pet-descricao" rows="4" placeholder="(Opcional) Conte um pouco sobre o animal..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-cuidados">Cuidados Veterinários</label>
+                        <textarea id="pet-cuidados" name="pet-cuidados" rows="2" placeholder="(Opcional) Ex: Vacinado, Vermifugado, Castrado..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-temperamento">Temperamento</label>
+                        <textarea id="pet-temperamento" name="pet-temperamento" rows="2" placeholder="(Opcional) Ex: Dócil, Brincalhão, Tímido..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-adaptacao">Adaptação</label>
+                        <textarea id="pet-adaptacao" name="pet-adaptacao" rows="2" placeholder="(Opcional) Ex: Se dá bem com cães, crianças, gatos..."></textarea>
+                    </div>
+
+                    <h2 class="step-title">Seus Dados de Contato</h2>
+                    <div class="form-group">
+                        <label for="doador-nome">Seu Nome <span class="asterisk">*</span></label>
+                        <input type="text" id="doador-nome" name="doador-nome" required>
+                        <span class="error-message" data-field="doador-nome"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="doador-email">Seu E-mail <span class="asterisk">*</span></label>
+                        <input type="email" id="doador-email" name="doador-email" required>
+                       <span class="error-message" data-field="doador-email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="doador-telefone">Seu Telefone/WhatsApp <span class="asterisk">*</span></label>
+                        <input type="tel" id="doador-telefone" name="doador-telefone" placeholder="(xx) xxxxx-xxxx" required>
+                        <span class="error-message" data-field="doador-telefone"></span>
+                    </div>
+
+                    <div class="form-buttons">
+                    <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Anterior</button>
+                        <button type="submit" class="btn-submit-form">Enviar Cadastro</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <div id="form-success-message" class="modal-success-message" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <h3>Cadastro Enviado!</h3>
+                <p>Obrigado! Seu pet será revisado e logo estará disponível para adoção no site.</p>
+                <a href="/index.html" class="btn-voltar">Voltar para a Home</a>
+            </div>
+
+        </div>
+    </main>
+    
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/database.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/doar-pet.js"></script>
+    <script src="/js/acessibilidade.js"></script>  
+    </body>
+</html>
