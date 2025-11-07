@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // botão "Ver todos" roxo (ajusta link)
   const verTodosBtn = document.querySelector('.btn-contact-purple');
   if (verTodosBtn) {
-    verTodosBtn.href = '/pages/encontrados.html';
+    verTodosBtn.href = 'pages/encontrados.html';
     verTodosBtn.textContent = 'Ver todos os Pets Encontrados';
   }
 
