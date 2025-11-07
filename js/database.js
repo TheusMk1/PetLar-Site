@@ -344,7 +344,7 @@ const allPets = [
         idadeTexto: "7 a 11 meses",
         raca: "Indeterminado",
         localizacao: "Araçatuba - SP",
-        img: "../img/animais/MajueLolaDog.webp", // <-- CORRIGIDO
+        img: "../img/animais/MajuELolaDog.webp", // <-- CORRIGIDO
         gallery: ["../img/animais/MajueLolaDog.webp", "../img/animais/majueloladog2.webp", "../img/animais/majueloladog3.webp"], // <-- CORRIGIDO
         descricaoCurta: "Encontrei as 2 cachorrinhas na rua,provavelmente abandonarão elas,pois estava passando fome e frio, estava bem maltratadas. No momento estou cuidando, ja mediquei com remédio de verme e vacina,porém moro em condomínio pequeno e não tenho como ficar com elas. Estou a procura de uma lar para Maju e Lola são bem carinhosas, 2 fêmea, elas merecem ser amadas!",
         historia: "Encontrei as 2 cachorrinhas na rua,provavelmente abandonarão elas,pois estava passando fome e frio, estava bem maltratadas. No momento estou cuidando, ja mediquei com remédio de verme e vacina,porém moro em condomínio pequeno e não tenho como ficar com elas. Estou a procura de uma lar para Maju e Lola são bem carinhosas, 2 fêmea, elas merecem ser amadas!",
