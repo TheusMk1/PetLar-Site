@@ -4,15 +4,28 @@
  * Ouve o evento de que a página HTML foi carregada
  */
 document.addEventListener('DOMContentLoaded', () => {
-    // Carrega componentes (header/footer)
-    // Usando o seu caminho de pasta "/componentes/"
-    loadComponent('/componentes/header.html', '#header-placeholder');
-    loadComponent('/componentes/footer.html', '#footer-placeholder');
+    
+    // --- ESTA É A CORREÇÃO PARA O GITHUB ---
+    // Verifica se a URL atual contém '/pages/', o que nos diz que estamos em uma subpasta
+    const isInPagesFolder = window.location.pathname.includes('/pages/');
+    
+    // Se estivermos em /pages/, o caminho para voltar para a raiz é '../'
+    // Se estivermos na raiz (index.html), o caminho é ''
+    const basePath = isInPagesFolder ? '../' : '';
+    // --- FIM DA CORREÇÃO ---
 
-    // Inicia os scripts dos modais
-    initializeModal(); // Controla o modal "Quero Adotar"
-    initializeDonateModal(); // Controla o NOVO modal "Doação Voluntária"
-    initializeStaticIndexButtons(); // ATIVA os botões estáticos do index.html
+    // Carrega componentes (header/footer) usando o caminho base
+    loadComponent(basePath + 'componentes/header.html', '#header-placeholder');
+    loadComponent(basePath + 'componentes/footer.html', '#footer-placeholder');
+
+    // Inicia os scripts dos modais
+    initializeModal(); // Controla o modal "Quero Adotar"
+    initializeDonateModal(); // Controla o NOVO modal "Doação Voluntária"
+    
+    // Só roda a função dos botões estáticos se estivermos no index.html
+    if (!isInPagesFolder) {
+        initializeStaticIndexButtons(); // ATIVA os botões estáticos do index.html
+    }
 });
 
 
@@ -31,13 +44,13 @@ function googleTranslateElementInit() {
  * Busca um arquivo HTML e o injeta em um placeholder.
  */
 function loadComponent(url, placeholderId) {
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Falha ao carregar ${url}. Verifique o caminho e se está usando Live Server.`);
-            }
-            return response.text();
-        })
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Falha ao carregar ${url}. Verifique o caminho do arquivo.`);
+            }
+            return response.text();
+        })
         .then(data => {
             const placeholder = document.querySelector(placeholderId);
             if (placeholder) {
