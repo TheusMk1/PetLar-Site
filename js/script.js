@@ -44,20 +44,28 @@ function googleTranslateElementInit() {
  * Busca um arquivo HTML e o injeta em um placeholder.
  */
 function loadComponent(url, placeholderId) {
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Falha ao carregar ${url}. Verifique o caminho do arquivo.`);
-            }
-            return response.text();
-        })
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Falha ao carregar ${url}. Verifique o caminho do arquivo.`);
+            }
+            return response.text();
+        })
         .then(data => {
             const placeholder = document.querySelector(placeholderId);
             if (placeholder) {
                 placeholder.innerHTML = data;
-                // Se for o header, inicia os scripts de acessibilidade
+
                 if (placeholderId === '#header-placeholder') {
                     initializeAppAccessibility();
+
+                    // ✅ Corrige o link da logo dinamicamente
+                    const logoLink = document.querySelector('#logo-link');
+                    if (logoLink) {
+                        const isInPagesFolder = window.location.pathname.includes('/pages/');
+                        const basePath = isInPagesFolder ? '../' : '';
+                        logoLink.href = basePath + 'index.html';
+                    }
                 }
             } else {
                 console.warn(`Placeholder "${placeholderId}" não encontrado.`);
